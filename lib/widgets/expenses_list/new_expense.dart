@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+
+
 import 'package:expensetracker/models/expense.dart';
 import 'package:flutter/material.dart';
 
@@ -29,27 +31,11 @@ class _NewExpenseState extends State<NewExpense> {
         firstDate: firstDate,
         lastDate: now);
 
-    setState(() {
-      _selectedDate = pickedDate;
-    });
-    // if (pickedDate != null) {
-    //   setState(() {
-    //     _selectedDate = pickedDate;
-    //     // Format the date and set it in the date controller
-    //     _datecontroller.text =
-    //         "${_selectedDate!.day}/${_selectedDate!.month}/${_selectedDate!.year}";
-    //   });
-    // }
-
-    //  Expanded(
-    //                   child: TextField(
-    //                     controller: _datecontroller, // Attach the controller
-    //                     decoration: InputDecoration(
-    //                       hintText: 'Select a date',
-    //                     ),
-    //                     readOnly: true, // Makes the field non-editable
-    //                   ),
-    //                 ),
+    setState(
+      () {
+        _selectedDate = pickedDate;
+      },
+    );
   }
 
   void _submitexpensedata() {
@@ -82,6 +68,7 @@ class _NewExpenseState extends State<NewExpense> {
           date: _selectedDate!,
           category: _selectedCategory),
     );
+    Navigator.pop(context);
   }
 
   @override
@@ -95,7 +82,7 @@ class _NewExpenseState extends State<NewExpense> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.fromLTRB(16.0, 48, 16, 16),
       child: Column(
         children: [
           TextField(
