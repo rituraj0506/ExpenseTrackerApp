@@ -18,6 +18,7 @@ class ExpensesList extends StatelessWidget {
         },
         child: ExpenseItem(expenses[index]),
       ),
+     
     );
   }
 }
